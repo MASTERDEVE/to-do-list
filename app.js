@@ -3,6 +3,9 @@ const bodyParser = require ("body-parser");
 const mongoose=require("mongoose");
 const _ = require("lodash");
 
+const PORT = process.env.PORT || 3000;
+const mongoUri = process.env.MONGODB_URI;
+
 const app = express();
 app.set('view engine', 'ejs');
 
@@ -139,7 +142,7 @@ app.get("/about",function(req,res){
                                   
 
 main().then(()=>{
-app.listen(3000, function(){
+app.listen(PORT, function(){
     console.log("Server is running on port 3000");
 }); 
 }).catch(console.error);
